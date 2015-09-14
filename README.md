@@ -1,20 +1,11 @@
 # Glissando
 
-This was my project for the [Fall 2015 HopHacks](http://hophacksfall2015.devpost.com) hackathon at Johns Hopkins University. Usage is fairly straightforward - just run the Python scrpit and it it will produce the output file in MIDI format.
-
-Devpost link: http://devpost.com/software/glissando
-
-## Inspiration
-
-A while ago I read [a paper](http://arxiv.org/pdf/1508.06576v2.pdf) by a team of researchers in Germany who used machine learning to automatically paint a scene in the style of a famous artist. It immediately got me thinking if it was possible to do the same thing with music.
-
-## What it does
+## forked from the fantastic HopHacks project by asivrat1. 
 
 Glissando trains a Bayesian n-gram model by listening to music and remembering important features such as rhythmic patterns and chord progressions. It then generates a new song in that style. First it samples a chord for each measure from the n-gram distribution based on frequently observed chord progressions in its training set. Once it has done that it samples a melody for that measure. The melody is first given a rhythm, again using an n-gram model trained on the dataset. Once the rhythm is set, it samples the pitches for the melody from the notes that constitute the chord for that measure, weighting them by proximity to the previous note, but excluding the previous note and the one that came before it.
 
-## How I built it
 
-I built Glissando in Python using a library from MIT called Music21. Music21 allows me to parse musical scores stored in either mxml format or midi. The n-gram learner was implemented by hand. I used PyPy to get faster performance as training can be slow. Our training dataset currently includes ~400 chorales by Bach, but can be extended much further.
+Music21 allows me to parse musical scores stored in either mxml format or midi. The n-gram learner was implemented by hand. I used PyPy to get faster performance as training can be slow. Our training dataset currently includes ~400 chorales by Bach, but can be extended much further.
 
 ## Challenges I ran into
 
@@ -28,9 +19,6 @@ Also, one big problem with modern computer generated music is that it sounds aim
 
 Finally, I think the end result sounds very nice, and can actually be listened to quite comfortably for a while.
 
-## What I learned
-
-I learned a lot about the difficulties of computer generated music, the importance of a dataset, and most importantly how to deal with sparse data. Sometimes you need to effectively combine similar features to get the most out of a small dataset, and this is a very important concept in machine learning in general.
 
 ## What's next for Glissando
 
